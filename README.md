@@ -62,33 +62,6 @@ Significance_tools/
 - Мінімальний розмір вибірки: 100 спостережень
 - Мінімальна кількість успіхів: 5 подій
 
-## 🚀 Як використовувати
-
-1. Клонуйте репозиторій:
-```bash
-git clone https://github.com/iprachuk/Significance_tools.git
-cd Significance_tools
-```
-
-2. Встановіть необхідні залежності:
-```bash
-pip install jupyter pandas numpy statsmodels
-```
-
-3. Запустіть Jupyter Notebook:
-```bash
-jupyter notebook Significance_tools.ipynb
-```
-
-4. Конфігуруйте метрики та запустіть аналіз послідовно
-
-## 📝 Вимоги
-
-- Python 3.7+
-- Jupyter Notebook або Google Colab
-- Google Drive доступ (для роботи з Google Colab)
-- Всі залежності зазначені в `requirements.txt` (якщо доступно)
-
 ## 📊 Вихідні дані
 
 Результати аналізу експортуються у CSV формат та містять:
