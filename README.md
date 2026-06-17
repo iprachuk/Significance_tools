@@ -1,74 +1,232 @@
-# Significance Tools
+# A/B Testing & Statistical Significance Analysis
 
-## 📋 Опис проєкту
+## 📋 Project Description
 
-Цей проект розроблений як автоматизована платформа для проведення А/В тестування та статистичного аналізу конверсій. Проект містить комплексні функції для розрахунку метрик, проведення Z-тестів та сегментованого аналізу результатів. Розроблений на мові Python з використанням Jupyter Notebook для інтерактивного аналізу.
+This project is an automated A/B testing and statistical significance analysis tool designed to evaluate experiment performance and conversion metrics.
 
-## 🎯 Мета проєкту
+Developed in Python using Jupyter Notebook, the project automates the calculation of conversion rates, performs statistical hypothesis testing, validates sample quality, and generates segmented insights across multiple business dimensions.
 
-Розробка інструменту для проведення статистичного А/В тестування включаючи:
-- Автоматичне завантаження та обробка даних експериментів
-- Розрахунок ключових метрик конверсії (CR)
-- Проведення Z-тесту для визначення статистичної значущості
-- Сегментований аналіз за пристроями, країнами, континентами та каналами
-- Валідація розміру вибірки та перевірка якості даних
-- Експорт результатів для Tableau
+The exported results are ready for further visualization and business reporting in Tableau.
 
-## 🛠️ Технологічний стек
+---
 
-- **Python 3.x** - основна мова програмування
-- **Jupyter Notebook** - інтерактивна середовище аналізу
-- **Pandas** - обробка та манипуляція даними
-- **NumPy** - числові обчислення
-- **Statsmodels** - статистичне тестування (Z-test для пропорцій)
-- **Google Colab** - хмарне виконання ноутбука
+## 🎯 Project Objectives
 
-## 📊 Структура проєкту
+The main goals of this project are to:
 
+* Automate A/B testing analysis;
+* Calculate key conversion metrics;
+* Compare control and test groups;
+* Perform statistical significance testing;
+* Validate sample size and data quality;
+* Analyze experiment results across different customer segments;
+* Export analytical results for business visualization.
+
+---
+
+## 🛠️ Technology Stack
+
+* **Python 3.x** – primary programming language;
+* **Jupyter Notebook** – interactive analysis environment;
+* **Google Colab** – cloud notebook execution;
+* **Pandas** – data manipulation;
+* **NumPy** – numerical computations;
+* **Statsmodels** – statistical hypothesis testing;
+* **CSV Export** – result integration with Tableau.
+
+---
+
+## 📂 Project Structure
+
+```text
+A-B-Testing-Analysis/
+├── README.md
+├── Significance_tools.ipynb
+└── AB_testing_tool.csv
 ```
-Significance_tools/
-├── README.md                      # Цей файл
-├── Significance_tools.ipynb       # Jupyter Notebook з A/B тестуванням
-└── AB_testing_tool_file        # Експортовані результати аналізу
-    └── AB_testing_tool.csv
-```
 
+---
 
-## 📈 Основні етапи аналізу
+## 📊 Data Source
 
-1. **Налаштування環境** - імпорт бібліотек та підключення до Google Drive
-2. **Підготовка даних** - завантаження датасету та конфігурація метрик
-3. **Статистичне тестування** - Z-тест для порівняння контрольної та тестової групи
-4. **Валідація вибірки** - перевірка мінімальних вимог до розміру та якості даних
-5. **Сегментація** - аналіз за різними вимірами (device, country, continent, channel)
-6. **Експорт результатів** - збереження результатів у CSV для подальшої візуалізації
+The analysis uses experimental data stored in:
 
-## 📊 Джерело даних
+**Portfolio_Project_2.csv**
 
-Дані завантажуються з Google Drive файлу **Portfolio_Project_2.csv**. 
+The dataset contains information about:
 
-**Основні метрики, що розраховуються:**
-- **add_payment_info_per_session** - додавання інформації про платіж на сесію
-- **add_shipping_info_per_session** - додавання адреси доставки на сесію
-- **begin_checkout_per_session** - розпочиння оформлення замовлення на сесію
-- **new_accounts_per_session** - створення нових акаунтів на сесію
-- **conversion_orders_per_session** - конверсія замовлень на сесію
-- **add_to_cart_per_session** - додавання товарів у кошик на сесію
+* User sessions;
+* Experiment groups;
+* Customer events;
+* Device types;
+* Countries;
+* Continents;
+* Marketing channels.
 
-## 🔬 Статистичні методи
+---
 
-**Z-тест для пропорцій** - використовується для порівняння конверсійних ставок між групами:
-- Значення p < 0.05 вважається статистично значущим
-- Мінімальний розмір вибірки: 100 спостережень
-- Мінімальна кількість успіхів: 5 подій
+## 📈 Key Metrics
 
-## 📊 Вихідні дані
+The project calculates several conversion metrics:
 
-Результати аналізу експортуються у CSV формат та містять:
-- Метри тестування (z-statistic, p-value)
-- Конверсійні ставки для контрольної та тестової групи
-- Відсоток змін (ліфт)
-- Статус статистичної значущості
-- Сегментаційні вимірювання
+| Metric                        | Description                                |
+| ----------------------------- | ------------------------------------------ |
+| add_payment_info_per_session  | Payment information additions per session  |
+| add_shipping_info_per_session | Shipping information additions per session |
+| begin_checkout_per_session    | Checkout initiations per session           |
+| new_accounts_per_session      | New account registrations per session      |
+| conversion_orders_per_session | Orders per session                         |
+| add_to_cart_per_session       | Add-to-cart actions per session            |
 
-Експортовані дані готові для інтеграції з **Tableau** та іншими інструментами для візуалізації.
+---
+
+## ❓ Business Questions
+
+This project aims to answer the following questions:
+
+* Does the test group outperform the control group?
+* Are observed differences statistically significant?
+* Which customer segments respond differently?
+* Which devices or countries show the highest uplift?
+* Are experiment samples large enough for reliable conclusions?
+* Which business metrics improve under the experiment?
+
+---
+
+## 📊 Analysis Workflow
+
+### 1. Data Preparation
+
+* Load experimental data;
+* Configure conversion metrics;
+* Prepare control and test groups.
+
+---
+
+### 2. Metric Calculation
+
+Calculate conversion rates for:
+
+* Control group;
+* Test group.
+
+---
+
+### 3. Statistical Testing
+
+Perform a two-proportion Z-test to compare conversion rates.
+
+The project calculates:
+
+* Z-statistic;
+* P-value;
+* Statistical significance.
+
+---
+
+### 4. Sample Validation
+
+Validate experiment quality by checking:
+
+* Minimum sample size;
+* Minimum number of successful events;
+* Data consistency.
+
+---
+
+### 5. Segmentation Analysis
+
+The analysis is performed across multiple business dimensions:
+
+* Device;
+* Country;
+* Continent;
+* Marketing channel.
+
+---
+
+### 6. Result Export
+
+Export the analytical results into CSV format for Tableau dashboards and business reporting.
+
+---
+
+## 🔬 Statistical Methods
+
+### Two-Proportion Z-Test
+
+The project compares conversion rates between control and test groups.
+
+Rules:
+
+* Significance level: **α = 0.05**;
+* p-value < 0.05 indicates statistical significance;
+* Minimum sample size: 100 observations;
+* Minimum successful events: 5.
+
+---
+
+## 📊 Output Metrics
+
+The exported dataset includes:
+
+* Control conversion rate;
+* Test conversion rate;
+* Percentage uplift;
+* Z-statistic;
+* P-value;
+* Statistical significance flag;
+* Sample validation flag;
+* Segment type;
+* Segment value.
+
+---
+
+## 💡 Key Insights
+
+The analysis helps identify:
+
+* Winning experiment variants;
+* High-performing customer segments;
+* Conversion improvements;
+* Regional differences;
+* Device-specific behavior;
+* Marketing channel effectiveness.
+
+---
+
+## 🚀 Business Value
+
+The results can help businesses:
+
+* Make data-driven product decisions;
+* Optimize conversion funnels;
+* Evaluate marketing experiments;
+* Identify profitable customer segments;
+* Reduce decision-making risk through statistical validation;
+* Build Tableau dashboards for experiment monitoring.
+
+---
+
+## 🎓 Skills Demonstrated
+
+This project showcases practical experience in:
+
+* A/B testing;
+* Statistical hypothesis testing;
+* Two-proportion Z-tests;
+* Conversion rate analysis;
+* Sample validation;
+* Customer segmentation;
+* Python programming;
+* Pandas;
+* Statsmodels;
+* Business analytics;
+* Data storytelling;
+* Tableau integration.
+
+---
+
+## 📌 Conclusion
+
+A/B Testing & Statistical Significance Analysis demonstrates a complete experimental analytics workflow. The project combines automated metric calculation, statistical hypothesis testing, customer segmentation, and business reporting to support evidence-based decision-making and optimization of business performance.
